@@ -12,6 +12,12 @@
         <section class="section__container">
             <slider></slider>
         </section>
+        <!-- <section class="section__container _container">
+            <gallery></gallery>
+        </section> -->
+        <section class="section__container">
+            <my-map></my-map>
+        </section>
         <!-- <section class="section__container">
             <div :class="innerWidth > 1440 ? 'map-section _container' : ''">
                 <h2 
@@ -26,9 +32,15 @@
 
 <script>
 import Slider from './Slider.vue'
+// import Gallery from './Gallery.vue'
+import MyMap from './Map.vue'
 
 export default {
-    components: { Slider },
+    components: { 
+        Slider,
+        // Gallery,
+        MyMap
+    },
     mounted() {
         this.onResize()
         window.addEventListener('resize', this.onResize)
@@ -38,7 +50,7 @@ export default {
     },
     data() {
         return {
-            innerWidth
+            innerWidth,
         }
     },
     methods: {
@@ -51,6 +63,7 @@ export default {
 
 <style lang="scss" scope>
 @import '../assets/mixins';
+
 .main-content__container {
     height: 440px;
     width: 100%;
