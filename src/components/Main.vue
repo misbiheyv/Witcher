@@ -12,33 +12,24 @@
         <section class="section__container">
             <slider></slider>
         </section>
-        <!-- <section class="section__container _container">
+        <section class="section__container">
             <gallery></gallery>
-        </section> -->
+        </section>
         <section class="section__container">
             <my-map></my-map>
         </section>
-        <!-- <section class="section__container">
-            <div :class="innerWidth > 1440 ? 'map-section _container' : ''">
-                <h2 
-                    class="map-section__title" 
-                    :class="innerWidth <= 1440 ? '_container' : ''"
-                > Магазины мерча ведьмака </h2>
-                <div class="map-section__map-container"></div>
-            </div>
-        </section> -->
     </div>
 </template>
 
 <script>
 import Slider from './Slider.vue'
-// import Gallery from './Gallery.vue'
+import Gallery from './Gallery.vue'
 import MyMap from './Map.vue'
 
 export default {
     components: { 
         Slider,
-        // Gallery,
+        Gallery,
         MyMap
     },
     mounted() {
@@ -67,7 +58,9 @@ export default {
 .main-content__container {
     height: 440px;
     width: 100%;
-    background: url(../assets/images/main.png) 70% 50% no-repeat;
+    display: flex;
+    justify-content: center;
+    background: url(../assets/images/main.jpg) 70% 50% no-repeat;
     background-size: cover;
     margin-bottom: 72px;
     @include laptop { margin-bottom: 64px; }

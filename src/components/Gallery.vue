@@ -1,13 +1,14 @@
 <template>
-    <div class="gallery__container">
+    <div class="gallery__container _container">
         <h2>Кадры со съемок</h2>
         <div class="gallery">
             <div class="gallery__items">
-                <div v-for="(image, index) in images" :key="image + index" class="gallery__item" :class="image.modifiers">
+                <div v-for="(image, index) in visibleImages" :key="image + index" class="gallery__item" :class="image.modifiers">
                     <img :src="require(`../assets/images/galleryImages/${image.name}.jpg`)" alt="photo">
                 </div>
             </div>
         </div>
+        <button class="gallery__btn btn transparent-btn">Показать еще</button>
     </div>
 </template>
 
@@ -39,8 +40,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/mixins';
 .gallery__container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 72px;
+    @include laptop { margin-bottom: 64px; }
+    @include tablet { margin-bottom: 48px; }
+
+    h2 {
+        width: 100%;
+        margin-bottom: 40px;
+        @include laptop { margin-bottom: 24px; }
+    }
+    .gallery {
+        width: 100%;
+    }
+    .gallery__btn {
+        width: 100%;
+        margin-top: 32px;
+        @include laptop { margin-top: 24px; }
+    }
 }
     .gallery__items {
         width: 100%;

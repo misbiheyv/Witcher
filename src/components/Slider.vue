@@ -40,6 +40,7 @@ export default {
     data() {
         return {
             iterator: 0,
+            slidesToShow: undefined,
             slides: [
                 {
                     heroName: 'Геральт',
@@ -86,6 +87,13 @@ export default {
             ]
         }
     },
+    mounted() {
+        this.onResize()
+        window.addEventListener('resize', this.onResize)
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.onResize)
+    },
     methods: {
         slideNext() {
             if (this.possibleSwipeNext) {
@@ -106,20 +114,32 @@ export default {
                 slider.style.transition = 'transform .5s';
                 slider.style.transform = 'translateX(-' + `${--this.iterator*(elWidth+elMargin)}` + 'px)'
             }
+        },
+        onResize() {
+            let count;
+            const containerWidth = document.querySelector('.slides__container').getBoundingClientRect().width
+            const slideWidth = document.querySelector('.slide').getBoundingClientRect().width
+            const elMargin = parseInt(window.getComputedStyle(document.querySelector('.slide')).marginRight, 10)
+            count = Math.floor(containerWidth/(slideWidth+elMargin))
+            this.slidesToShow = count;
+
+            document.querySelector('.running-bar').style.transition = 'all .3s';
+            const progressWidth = (this.iterator + this.slidesToShow)/this.slides.length*100
+            document.querySelector('.running-bar').style.width = `${progressWidth < 100? progressWidth: 100}%`;
         }
     },
     computed: {
         possibleSwipeNext() {
-            return this.iterator < this.slides.length
+            return this.iterator + this.slidesToShow < this.slides.length
         },
         possibleSwipePrev() {
             return this.iterator > 0
-        }
+        },
     },
     watch: {
         iterator(cur) {
             document.querySelector('.running-bar').style.transition = 'all .3s';
-            document.querySelector('.running-bar').style.width = `${cur/this.slides.length*100}%`;
+            document.querySelector('.running-bar').style.width = `${(cur + this.slidesToShow)/this.slides.length*100}%`;
         }
     }
 }
@@ -137,10 +157,8 @@ export default {
     width: 100%;
     overflow: hidden;
 
-    & + .section__container {
-        margin-bottom: 72px;
-        @include laptop { margin-bottom: 64px; }
-    }
+    margin-bottom: 72px;
+    @include laptop { margin-bottom: 64px; }
 
     .slider__navigation {
         width: 100%;
