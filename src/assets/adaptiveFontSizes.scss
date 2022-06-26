@@ -1,0 +1,45 @@
+@import 'mixins';
+
+h1, h2, h3 { font-weight: 600; }
+
+h1 {
+    font-size: 56px;
+    line-height: 100%;
+    @include tablet { font-size: 40px; }
+    @include phone { 
+        font-size: 32px; 
+        line-height: 119%;
+    }
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 120%;
+    @include tablet { 
+        font-size: 32px; 
+        line-height: 125%;
+    }
+    @include phone { 
+        font-size: 28px; 
+        line-height: 129%;
+    }
+}
+
+h3 {
+    font-size: 32px; 
+    line-height: 125%;
+    @include tablet { 
+        font-size: 24px; 
+        line-height: 133%;
+    }
+}
+
+p {
+    font-size: 16px;
+    line-height: 125%;
+}
+
+a {
+    font-size: 14px;
+    line-height: 143%;
+}
