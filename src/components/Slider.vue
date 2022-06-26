@@ -210,7 +210,7 @@ export default {
             .slide {
                 @include card(400px);
                 @include laptop { @include card(360px); };
-                @include tablet { @include card(280px); };
+                @include phone { @include card(280px); };
 
                 flex-shrink: 0;
                 position: relative;

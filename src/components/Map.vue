@@ -82,7 +82,9 @@ export default {
     #map {
         width: 100%;
         height: 540px;
-        // filter: grayscale(100%);
+        position: relative;
+        z-index: 0;
+        filter: grayscale(100%);
     }
     .map__wrapper {
         width: 100%;
