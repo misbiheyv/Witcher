@@ -2,6 +2,7 @@
   <div class="main__wrapper">
     <my-header></my-header>
     <my-main></my-main>
+    <!-- <slider></slider> -->
     <!-- <div class="main__container _container">
       <div>
 
@@ -15,13 +16,15 @@
 <script>
 import MyHeader from './components/Header.vue'
 import MyFooter from './components/Footer.vue'
+// import Slider from './components/Slider.vue'
 import MyMain from './components/Main.vue'
 
 export default {
   components: { 
     MyHeader,
     MyFooter,
-    MyMain
+    MyMain,
+    // Slider
   },
   name: 'App',
 }
@@ -34,12 +37,11 @@ export default {
   .main__wrapper {
     background-color: $gray;
     min-height: 100vh;
-    // height: 100%;
+    height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     // justify-content: center;
-    align-items: center;
     margin-top: 88px;
     @include tablet { margin-top: 72px; }
     @include phone { margin-top: 80px; }

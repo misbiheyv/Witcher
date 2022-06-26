@@ -18,13 +18,14 @@ export default {
 @import '../assets/mixins';
 
 .header__container {
-    position: absolute;
+    position: fixed;
     top: 0;
     display: flex;
     justify-content: center;
     background-color: black;
     width: 100%;
     height: 88px;
+    z-index: 50;
 
     @include tablet { height: 72px; }
     @include phone { height: 80px; }
@@ -48,7 +49,7 @@ export default {
         }
 
         &__btn {
-            @media (max-width: 399.98px) {
+            @media (max-width: 400px) {
             max-width: 209px;
             min-width: max-content;
             padding: 16px 16px;

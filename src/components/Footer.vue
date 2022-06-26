@@ -46,6 +46,12 @@
     width: 100%;
     background-color: $lightGray;
     height: 128px;
+    & {
+        margin-top: 96px;
+        @include laptop {
+            margin-top: 0px;
+        }
+    }
     .footer {
         display: flex;
         justify-content: space-between;
