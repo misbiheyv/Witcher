@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Сериал Ведьмак</h1>
-    Сериал Ведьмак
+    <h1>ведьмак</h1>
+    ведьмак
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <style>
-  .h1 {
-    font-weight: 600;
+  h1 {
+    font-weight: 600 !important;
   }
 </style>
