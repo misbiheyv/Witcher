@@ -1,10 +1,13 @@
 <template>
   <div class="main__wrapper">
     <my-header></my-header>
+    <my-main></my-main>
+    <!-- <div class="main__container _container">
+      <div>
 
-    <div class="main__container _container">
-      <div></div>
-    </div>
+      </div>
+    </div> -->
+
     <my-footer></my-footer>
   </div>
 </template>
@@ -12,11 +15,13 @@
 <script>
 import MyHeader from './components/Header.vue'
 import MyFooter from './components/Footer.vue'
+import MyMain from './components/Main.vue'
 
 export default {
   components: { 
     MyHeader,
     MyFooter,
+    MyMain
   },
   name: 'App',
 }
@@ -33,8 +38,11 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    margin-top: 88px;
+    @include tablet { margin-top: 72px; }
+    @include phone { margin-top: 80px; }
 
     .main__container {
       // min-height: 100vh;
@@ -57,6 +65,19 @@ export default {
   .transparent-btn {
     background: rgba(236, 63, 63, 0.15);
     border: 1px solid rgba(236, 63, 63, 0.8);
+    transition: ease 0.2s;
+    &:hover {
+      background-color: $brightRed;
+      box-shadow: 0px 2px 24px rgba(255, 30, 30, 0.5);
+    }
+  }
+  .filled-btn {
+    background: $red;
+    transition: ease 0.2s;
+    &:hover {
+    background-color: $brightRed;
+      box-shadow: 0px 2px 24px rgba(255, 30, 30, 0.5);
+    }
   }
   ._container {
     max-width: 1440px;
