@@ -19,7 +19,7 @@
             <my-map></my-map>
         </section>
         <!-- <section class="section__container">
-            <div :class="innerWidth > 1440 ? 'map-section _container' : ''">
+            <div class="map-section" :class="innerWidth > 1440 ? '_container' : ''">
                 <h2 
                     class="map-section__title" 
                     :class="innerWidth <= 1440 ? '_container' : ''"

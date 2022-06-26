@@ -23,8 +23,7 @@ export default {
     mounted() {
         const icon = new L.icon({
             iconUrl: require('../assets/images/marker.png'),
-            iconSize: [50, 50],
-            className: 'logo-user'
+            iconSize: [60, 60],
         })
         this.map = new L.map('map', {
             center: [55.751244, 37.618423],
@@ -67,7 +66,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/mixins';
-
+    .fake-map__wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
     .map__container {
         width: 100%;
         display: flex;
@@ -84,7 +87,10 @@ export default {
         height: 540px;
         position: relative;
         z-index: 0;
-        filter: grayscale(100%);
+        // filter: grayscale(50%);
+        filter: saturate(0);
+
+
     }
     .map__wrapper {
         width: 100%;
