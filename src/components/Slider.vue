@@ -100,9 +100,16 @@ export default {
                 const elWidth = document.querySelector('.slide').getBoundingClientRect().width
                 const elMargin = parseInt(window.getComputedStyle(document.querySelector('.slide')).marginRight, 10)
                 const slider = document.querySelector('.slides__container')
+                
+                const slideWidth = document.querySelector('.slide').getBoundingClientRect().width
+                
+                const maxTransition = (slideWidth+elMargin) * document.querySelectorAll('.slide').length - elMargin
+                - document.querySelector('.slider__wrapper').getBoundingClientRect().width
+                this.iterator++
+                const curTransition = this.iterator*(elWidth+elMargin) > maxTransition? maxTransition: this.iterator*(elWidth+elMargin)
 
                 slider.style.transition = 'transform .5s';
-                slider.style.transform = 'translateX(-' + `${++this.iterator*(elWidth+elMargin)}` + 'px)'
+                slider.style.transform = 'translateX(-' + `${curTransition}` + 'px)'
             }
         },
         slidePrevious() {
@@ -120,12 +127,24 @@ export default {
             const containerWidth = document.querySelector('.slides__container').getBoundingClientRect().width
             const slideWidth = document.querySelector('.slide').getBoundingClientRect().width
             const elMargin = parseInt(window.getComputedStyle(document.querySelector('.slide')).marginRight, 10)
-            count = Math.floor(containerWidth/(slideWidth+elMargin))
-            this.slidesToShow = count;
+            const eps = elMargin/3
 
-            document.querySelector('.running-bar').style.transition = 'all .3s';
-            const progressWidth = (this.iterator + this.slidesToShow)/this.slides.length*100
-            document.querySelector('.running-bar').style.width = `${progressWidth < 100? progressWidth: 100}%`;
+            const maxTransition = (slideWidth+elMargin) * document.querySelectorAll('.slide').length - elMargin
+            - document.querySelector('.slider__wrapper').getBoundingClientRect().width
+            let transform = /\d?(\d|\.)+/.exec(document.querySelector('.slides__container').style.transform)
+            let currentTransition = 0;
+            if (transform && transform.length > 0) {
+                transform = transform[0]
+                currentTransition = parseFloat(transform)
+            }
+            console.log(currentTransition, maxTransition)
+            currentTransition = !this.possibleSwipeNext?maxTransition:currentTransition
+
+            document.querySelector('.slides__container').style.transform = 'translateX(-' + `${currentTransition}` + 'px)'
+
+
+            count = Math.floor(containerWidth/(slideWidth+elMargin-eps))
+            this.slidesToShow = count;
         }
     },
     computed: {
