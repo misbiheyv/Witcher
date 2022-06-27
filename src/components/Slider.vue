@@ -232,6 +232,10 @@ export default {
                     position: absolute;
                     bottom: 0; left: 0;
                     .hero-description { transition: ease .3s; display: none; }
+                    .hero-description {
+                        max-height: 140px;
+                        overflow-y: hidden;
+                    }
                 }
                 &:hover {
                     .info__container {

@@ -26,7 +26,7 @@ export default {
             iconSize: [60, 60],
         })
         this.map = new L.map('map', {
-            center: [55.751244, 37.618423],
+            center: [55.751244, 37.568423],
             zoom: 12,
             zoomControl: false,
             doubleClickZoom: false,
@@ -85,6 +85,9 @@ export default {
     #map {
         width: 100%;
         height: 540px;
+        @include tablet {
+            height: 400px;
+        }
         position: relative;
         z-index: 0;
         // filter: grayscale(50%);

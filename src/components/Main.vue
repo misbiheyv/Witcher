@@ -18,19 +18,6 @@
         <section class="section__container">
             <my-map></my-map>
         </section>
-        <!-- <section class="section__container">
-            <div class="map-section" :class="innerWidth > 1440 ? '_container' : ''">
-                <h2 
-                    class="map-section__title" 
-                    :class="innerWidth <= 1440 ? '_container' : ''"
-                > Магазины мерча ведьмака </h2>
-                <div class="map-section__map-container">
-                    <span class="map__marker"></span>
-                    <span class="map__marker"></span>
-                    <span class="map__marker"></span>
-                </div>
-            </div>
-        </section> -->
     </div>
 </template>
 
@@ -118,34 +105,5 @@ export default {
     .section-title {
         width: 100%; 
     }
-}
-.map__marker {
-    background: url(../assets/images/marker.png) center;
-    background-size: cover;
-    position: absolute;
-    z-index: 2;
-    width: 50px;
-    height: 50px;
-}
-@mixin marker1Pos($width, $height) {
-    left: 199px/$width*100%;
-    top: 79px/$height*100%;
-}
-@mixin marker2Pos($width, $height) {
-    left: 299px/$width*100%;
-    top: 254px/$height*100%;
-}
-@mixin marker3Pos($width, $height) {
-    left: 600px/$width*100%;
-    top: 277px/$height*100%;
-}
-.map__marker:nth-child(1) {
-    @include marker1Pos(100%, 520px)
-}
-.map__marker:nth-child(2) {
-    @include marker2Pos(100%, 520px)
-}
-.map__marker:nth-child(3) {
-    @include marker3Pos(100%, 520px)
 }
 </style>
