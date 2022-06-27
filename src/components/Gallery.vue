@@ -126,7 +126,7 @@ export default {
             display: flex;
             flex-direction: column;
             .gallery__item {
-                height: 500px;
+                height: 50vw;
             }
         }
         .gallery__item-big {
