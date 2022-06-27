@@ -65,37 +65,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+/** ==================IMPORTS======================= */
+
 @import '../assets/mixins';
-    .fake-map__wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .map__container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h2 {
-            width: 100%;
-            margin-bottom: 40px;
-            @include laptop { margin-bottom: 24px; }
-        }
-    }
-    #map {
-        width: 100%;
-        height: 540px;
-        @include tablet {
-            height: 400px;
-        }
-        position: relative;
-        z-index: 0;
-        // filter: grayscale(50%);
-        filter: saturate(0);
 
+/** ==================MAP=BASE====================== */
 
+.map__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        width: 100%;
+        margin-bottom: 40px;
+        @include laptop { margin-bottom: 24px; }
     }
     .map__wrapper {
         width: 100%;
+        #map {
+            width: 100%;
+            height: 540px;
+            @include tablet {
+                height: 400px;
+            }
+            position: relative;
+            z-index: 0;
+            filter: saturate(0);
+        }
     }
+}
+
 </style>

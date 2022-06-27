@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import Slider from './Slider.vue'
-import Gallery from './Gallery.vue'
-import MyMap from './Map.vue'
+import Slider from '../components/Slider.vue'
+import Gallery from '../components/Gallery.vue'
+import MyMap from '../components/Map.vue'
 
 export default {
     components: { 
@@ -53,7 +53,12 @@ export default {
 </script>
 
 <style lang="scss" scope>
+
+/** ==================IMPORTS======================= */
+
 @import '../assets/mixins';
+
+/** =================MAIN=CONTENT======================= */
 
 .main-content__container {
     height: 440px;
@@ -88,22 +93,14 @@ export default {
     }
 }
 
-.map-section__map-container {
-    background: url(../assets/images/map.png) left no-repeat;
-    background-size: cover;
-    height: 520px;
-    width: 100%;
-    position: relative;
-}
+/** =================MAIN=SECTIONS======================= */
 
 .section__container {
     display: flex;
     flex-direction: column;
     align-items: center;
     @include laptop { display: block; }
-    .map-section { width: 100%; }
-    .section-title {
-        width: 100%; 
-    }
+    // .map-section { width: 100%; }
+    .section-title { width: 100%; }
 }
 </style>

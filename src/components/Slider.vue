@@ -22,8 +22,8 @@
             <ul class="slides__container">
                 <li v-for="(slide, index) in slides" :key="slide+index" class="slide">
                     <img class="slide__img" :src="require(`../assets/images/sliderImages/${slide.image}.png`)" alt="hero-picture" />
-                    <div class="info__container">
-                        <div class="main-info">
+                    <div class="slide-info__container">
+                        <div class="slide-info__main-info">
                             <h4 class="info-element hero-name">{{ slide.heroName }}</h4>
                             <p class="info-element actor-name">{{ slide.actorName }}</p>
                         </div>
@@ -129,20 +129,6 @@ export default {
             const elMargin = parseInt(window.getComputedStyle(document.querySelector('.slide')).marginRight, 10)
             const eps = elMargin/3
 
-            const maxTransition = (slideWidth+elMargin) * document.querySelectorAll('.slide').length - elMargin
-            - document.querySelector('.slider__wrapper').getBoundingClientRect().width
-            let transform = /\d?(\d|\.)+/.exec(document.querySelector('.slides__container').style.transform)
-            let currentTransition = 0;
-            if (transform && transform.length > 0) {
-                transform = transform[0]
-                currentTransition = parseFloat(transform)
-            }
-            console.log(currentTransition, maxTransition)
-            currentTransition = !this.possibleSwipeNext?maxTransition:currentTransition
-
-            document.querySelector('.slides__container').style.transform = 'translateX(-' + `${currentTransition}` + 'px)'
-
-
             count = Math.floor(containerWidth/(slideWidth+elMargin-eps))
             this.slidesToShow = count;
         }
@@ -165,12 +151,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+/** ==================IMPORTS=AND=MIXINS===================== */
+
 @import '../assets/mixins';
 @import '../assets/colors';
+
 @mixin card($height) {
     height: ($height);
     width: $height * 0.705;
 }
+
+/** ==================SLIDER=BASE==================== */
 
 .slider {
     width: 100%;
@@ -241,23 +233,26 @@ export default {
                 }
                 .slide__img {
                     position: absolute;
+                    width: 100%;
+                    height: 100%;
                 }
     
-                .info__container {
+                .slide-info__container {
                     transition: ease .3s;
                     width: 100%;
                     padding: 24px 24px 32px 24px;
                     z-index: 2;
                     position: absolute;
                     bottom: 0; left: 0;
-                    .hero-description { transition: ease .3s; display: none; }
-                    .hero-description {
+                    .hero-description { 
+                        transition: ease .3s; 
+                        display: none; 
                         max-height: 140px;
                         overflow-y: hidden;
                     }
                 }
                 &:hover {
-                    .info__container {
+                    .slide-info__container {
                         display: flex;
                         height: 100%;
                         flex-direction: column;
@@ -269,9 +264,5 @@ export default {
             }
         }
     }
-}
-img {
-    width: 100%;
-    height: 100%;
 }
 </style>

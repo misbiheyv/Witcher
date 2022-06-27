@@ -67,7 +67,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+/** =================IMPORTS======================= */
+
 @import '../assets/mixins';
+
+/** ================GALLERY=BASE======================= */
+
 .gallery__container {
     width: 100%;
     display: flex;
@@ -100,7 +106,6 @@ export default {
         @include laptop {grid-template-columns: repeat(4 , minmax(148px, 1fr));}
         @include laptop {grid-template-rows: repeat(auto , minmax(148px, 1fr));}
 
-        // @include tablet {grid-template-rows: repeat(auto , minmax(212px, 1fr));}
         .gallery__item {
             position: relative;
             padding: 0px 0px 100% 0px;

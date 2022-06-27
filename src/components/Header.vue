@@ -14,8 +14,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+/** ==================IMPORTS======================= */
+
 @import '../assets/colors';
 @import '../assets/mixins';
+
+/** ==================HEADER=BASE====================== */
 
 .header__container {
     position: fixed;

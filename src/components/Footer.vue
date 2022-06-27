@@ -37,8 +37,13 @@
 </template>
 
 <style lang="scss" scoped>
+
+/** ==================IMPORTS======================= */
+
 @import '../assets/colors';
 @import '../assets/mixins';
+
+/** =================FOOTER=BASE======================= */
 
 .footer__container {
     display: flex;
@@ -113,6 +118,8 @@
         }
     }
 }
+
+/** =================FOOTER=ADDITIONAL=MEDIA====================== */
 
 @media (max-width: 500px) {
     .footer__container {
