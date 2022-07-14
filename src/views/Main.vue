@@ -5,7 +5,7 @@
                 <section class="main-content__about">
                     <h1>Сериал Ведьмак</h1>
                     <p>Геральт из Ривии, наемный охотник за чудовищами, перенесший мутации, идет навстречу своей судьбе в неспокойном мире, где люди часто оказываются куда коварнее чудовищ.</p>
-                    <button class="filled-btn btn">Смотреть сериал</button>
+                    <a href="https://witcher-tv.online/" target="_blank" class="filled-btn btn">Смотреть сериал</a>
                 </section>
             </div>
         </div>
