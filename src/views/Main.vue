@@ -18,6 +18,7 @@
         <section class="section__container">
             <my-map></my-map>
         </section>
+        <modal></modal>
     </div>
 </template>
 
@@ -25,12 +26,14 @@
 import Slider from '../components/Slider.vue'
 import Gallery from '../components/Gallery.vue'
 import MyMap from '../components/Map.vue'
+import Modal from '../components/Modal.vue'
 
 export default {
     components: { 
         Slider,
         Gallery,
-        MyMap
+        MyMap,
+        Modal
     },
     mounted() {
         this.onResize()

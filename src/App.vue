@@ -50,6 +50,7 @@ export default {
 /** ==================ELEMENTS======================= */
 
 .btn {
+  color: inherit;
   display: flex;
   justify-content: center;
   align-items: center;

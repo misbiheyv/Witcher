@@ -55,13 +55,13 @@ export default {
 
         &__btn {
             @media (max-width: 400px) {
-            max-width: 209px;
-            min-width: max-content;
-            padding: 16px 16px;
-            p {
-                font-size: 14px;
-                white-space: nowrap;
-            }
+                max-width: 209px;
+                min-width: max-content;
+                padding: 16px 16px;
+                p {
+                    font-size: 14px;
+                    white-space: nowrap;
+                }
             }
         }
     }
