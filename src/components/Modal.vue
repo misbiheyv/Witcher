@@ -1,5 +1,5 @@
 <template>
-    <div class="modal__container">
+    <div class="modal__container" @click.self="closeModal">
         <div class="modal">
             <button class="modal__close close-btn" @click="closeModal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -33,8 +33,43 @@
 import { mapMutations } from 'vuex';
 
 export default {
+    mounted() {
+        this.disableScroll()
+        document.addEventListener('keyup', this.onEscEvent)
+        document.addEventListener('keydown', this.onEnterEvent)
+    },
+    beforeUnmount() {
+        document.removeEventListener('keyup', this.onEscEvent)
+        document.removeEventListener('keydown', this.onEnterEvent)
+        this.enableScroll()
+    },
     methods: {
-        ...mapMutations({ closeModal: 'hideModal' })
+        ...mapMutations({ closeModal: 'hideModal' }),
+        preventDefault(e){
+            e.preventDefault();
+        },
+        disableScroll(){
+            const body = document.body;
+            body.style.height = '100vh';
+            body.style.overflowY = 'hidden';
+
+            document.body.addEventListener(
+                'touchmove', 
+                this.preventDefault, 
+                { passive: false }
+            );
+        },
+        enableScroll(){
+            const body = document.body;
+            body.style.height = '';
+            body.style.overflowY = '';
+
+            document.body.removeEventListener(
+                'touchmove', 
+                this.preventDefault, 
+                { passive: false }
+            );
+        },
     }
 }
 </script>

@@ -19,7 +19,7 @@
             <my-map></my-map>
         </section>
         <Teleport to="body" >
-            <modal v-show="showModal"></modal>
+            <modal v-if="showModal"></modal>
         </Teleport>
     </div>
 </template>
