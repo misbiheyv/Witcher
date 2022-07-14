@@ -2,14 +2,18 @@
     <header class="header__container">
       <div class="header _container">
         <div class="header__logo"></div>
-        <button class="header__btn transparent-btn btn"><p>Подключить подписку</p></button>
+        <button class="header__btn transparent-btn btn" @click="goSubscribe"><p>Подключить подписку</p></button>
       </div>
     </header>
 </template>
 
 <script>
 export default {
-    
+    methods: {
+        goSubscribe() {
+            this.$router.push('/subscribe')
+        }
+    }
 }
 </script>
 

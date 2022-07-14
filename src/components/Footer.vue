@@ -40,7 +40,9 @@
 import { mapMutations } from 'vuex';
 
 export default {
-    methods: { ...mapMutations({showModal :'showModal'}) }
+    methods: { 
+        ...mapMutations({showModal :'showModal'}),
+    },
 }
 </script>
 

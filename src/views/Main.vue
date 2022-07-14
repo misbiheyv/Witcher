@@ -18,9 +18,6 @@
         <section class="section__container">
             <my-map></my-map>
         </section>
-        <Teleport to="body" >
-            <modal v-if="showModal"></modal>
-        </Teleport>
     </div>
 </template>
 
@@ -28,15 +25,12 @@
 import Slider from '../components/Slider.vue'
 import Gallery from '../components/Gallery.vue'
 import MyMap from '../components/Map.vue'
-import Modal from '../components/Modal.vue'
-import { mapState } from 'vuex'
 
 export default {
     components: { 
         Slider,
         Gallery,
-        MyMap,
-        Modal
+        MyMap
     },
     mounted() {
         this.onResize()
@@ -49,9 +43,6 @@ export default {
         return {
             innerWidth,
         }
-    },
-    computed: {
-        ...mapState({showModal: 'showModal'})
     },
     methods: {
         onResize() {
@@ -109,7 +100,6 @@ export default {
     flex-direction: column;
     align-items: center;
     @include laptop { display: block; }
-    // .map-section { width: 100%; }
     .section-title { width: 100%; }
 }
 </style>
