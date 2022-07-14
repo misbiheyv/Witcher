@@ -3,7 +3,7 @@
         <div class="footer _container">
             <div class="footer__logo"></div>
             <div class="footer__info">
-                <a class="footer-info__text" href="#" target="_blank">
+                <a class="footer-info__text" href="#" @click.prevent="showModal">
                     Политика обработки<br />персональных данных
                 </a>
             </div>
@@ -35,6 +35,14 @@
         </div>
     </footer>
 </template>
+
+<script>
+import { mapMutations } from 'vuex';
+
+export default {
+    methods: { ...mapMutations({showModal :'showModal'}) }
+}
+</script>
 
 <style lang="scss" scoped>
 

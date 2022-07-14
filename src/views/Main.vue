@@ -18,7 +18,9 @@
         <section class="section__container">
             <my-map></my-map>
         </section>
-        <modal></modal>
+        <Teleport to="body" >
+            <modal v-show="showModal"></modal>
+        </Teleport>
     </div>
 </template>
 
@@ -27,6 +29,7 @@ import Slider from '../components/Slider.vue'
 import Gallery from '../components/Gallery.vue'
 import MyMap from '../components/Map.vue'
 import Modal from '../components/Modal.vue'
+import { mapState } from 'vuex'
 
 export default {
     components: { 
@@ -46,6 +49,9 @@ export default {
         return {
             innerWidth,
         }
+    },
+    computed: {
+        ...mapState({showModal: 'showModal'})
     },
     methods: {
         onResize() {
