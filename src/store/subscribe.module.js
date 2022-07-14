@@ -6,6 +6,9 @@ export const subscribe = {
     mutations: {
         accessForm(state) {
             state.formState = 1
+        },
+        fillingForm(state) {
+            state.formState = 0
         }
     },
     actions: {

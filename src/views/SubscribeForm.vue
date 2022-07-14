@@ -19,7 +19,7 @@
                     <label for="subscribe-checkbox__inp">Даю согласие на обработку своих персональных данных</label>
                 </div>
     
-                <button type="submit" @click.prevent="subscribe" class="subscribe__btn btn filled-btn" disabled>Оставить заявку</button>
+                <button type="submit" @click.prevent="subscribe" class="subscribe__btn btn filled-btn">Оставить заявку</button>
             </form>
 
             <section v-else-if="1" class="access__form">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState, mapMutations } from 'vuex';
 
 export default {
     data() {
@@ -60,10 +60,13 @@ export default {
     },
     methods: {
         ...mapActions({ sendRequest: 'subscribe/sendRequest' }),
-        goHome() { this.$router.push('/') },
+        ...mapMutations({ fillingForm: 'subscribe/fillingForm' }),
+        goHome() { 
+            this.$router.push('/')
+            this.fillingForm()
+        },
         subscribe() {
             if (this.isValid) {
-                console.log('valid')
                 return this.sendRequest()
             }
         }
