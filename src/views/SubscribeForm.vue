@@ -1,25 +1,25 @@
 <template>
-    <div class="_container rf-container">
-        <h1 v-show="formState === 0" class="rf__title">Оставьте заявку</h1>
-        <div class="rf__container">
-            <form v-if="formState === 0" name="rf-form" class="rf__form">
-                <input type="text" v-model="city" class="rf__input" name="rf-city" id="rf-city" placeholder="Город">
+    <div class="_container subscribe__wrapper">
+        <h1 v-show="formState === 0" class="subscribe__title">Оставьте заявку</h1>
+        <div class="subscribe__container">
+            <form v-if="formState === 0" name="subscribe-form" class="subscribe__form">
+                <input type="text" v-model="city" class="subscribe__input" name="subscribe-city" id="subscribe-city" placeholder="Город">
     
-                <input type="text" v-model="name" class="rf__input" name="rf-name" id="rf-name" placeholder="Имя">
+                <input type="text" v-model="name" class="subscribe__input" name="subscribe-name" id="subscribe-name" placeholder="Имя">
                 
-                <input type="email" v-model="email" class="rf__input" name="rf-email" id="rf-email" placeholder="Электронная почта">
+                <input type="email" v-model="email" class="subscribe__input" name="subscribe-email" id="subscribe-email" placeholder="Электронная почта">
     
-                <input type="tel" v-model="number" v-maska="'+7 (###) ###-##-##'" class="rf__input" name="rf-phone" id="rf-phone" placeholder="+7 (">
+                <input type="tel" v-model="number" v-maska="'+7 (###) ###-##-##'" class="subscribe__input" name="subscribe-phone" id="subscribe-phone" placeholder="+7 (">
     
-                <textarea v-model="additionalInfo" name="comment" id="rf-comment" cols="30" rows="8" placeholder="Оставьте пометки к заказу"></textarea>
+                <textarea v-model="additionalInfo" name="comment" id="subscribe-comment" cols="30" rows="8" placeholder="Оставьте пометки к заказу"></textarea>
 
-                <div class="rf__checkbox">
-                    <input v-model="isChecked" type="checkbox" name="rf-checkbox" id="rf-checkbox__inp">
-                    <label for="rf-checkbox__inp"></label>
-                    <label for="rf-checkbox__inp">Даю согласие на обработку своих персональных данных</label>
+                <div class="subscribe__checkbox">
+                    <input v-model="isChecked" type="checkbox" name="subscribe-checkbox" id="subscribe-checkbox__inp">
+                    <label for="subscribe-checkbox__inp"></label>
+                    <label for="subscribe-checkbox__inp">Даю согласие на обработку своих персональных данных</label>
                 </div>
     
-                <button type="submit" @click.prevent="subscribe" class="rf__btn btn filled-btn" disabled>Оставить заявку</button>
+                <button type="submit" @click.prevent="subscribe" class="subscribe__btn btn filled-btn" disabled>Оставить заявку</button>
             </form>
 
             <section v-else-if="1" class="access__form">
@@ -30,15 +30,15 @@
                 <button class="btn filled-btn" @click="goHome()">Вернуться на главную</button>
             </section>
     
-            <section class="rf__info">
-                <label class="rf-info__title">Наша горячая линия</label>
-                <h3 class="rf-info__text">8 800 38 23 112</h3>
+            <section class="subscribe__info">
+                <label class="subscribe-info__title">Наша горячая линия</label>
+                <h3 class="subscribe-info__text">8 800 38 23 112</h3>
     
-                <label class="rf-info__title">Главный офис</label>
-                <h3 class="rf-info__text">г. Москва, Садовническая ул., 80</h3>
+                <label class="subscribe-info__title">Главный офис</label>
+                <h3 class="subscribe-info__text">г. Москва, Садовническая ул., 80</h3>
     
-                <label class="rf-info__title">Часы работы</label>
-                <h3 class="rf-info__text">Пн-Пт с 10:00 до 22:00</h3>
+                <label class="subscribe-info__title">Часы работы</label>
+                <h3 class="subscribe-info__text">Пн-Пт с 10:00 до 22:00</h3>
             </section>
         </div>
     </div>
@@ -83,10 +83,10 @@ export default {
 
 <style lang="scss" scoped>
     @import '../assets/mixins';
-    .rf__title {
+    .subscribe__title {
         margin-bottom: 48px;
     }
-    .rf-container {
+    .subscribe__wrapper {
         margin-top: 60px;
         margin-bottom: 60px;
         @include laptop { 
@@ -98,17 +98,17 @@ export default {
             margin-bottom: 30px;
         }
     }
-    .rf__container {
+    .subscribe__container {
         display: flex;
         gap: 126px;
         @include tablet { flex-direction: column; gap: 40px; }
 
-        .rf__form {
+        .subscribe__form {
             width: 100%;
             display: flex;
             flex-direction: column;
 
-            .rf__input {
+            .subscribe__input {
                 height: 56px;
                 padding: 18px 24px;
                 background: rgba(255, 255, 255, 0.1);
@@ -122,7 +122,7 @@ export default {
             }
             & > *:not(:last-child) { margin-bottom: 32px; }
 
-            #rf__file {
+            #subscribe__file {
                 display: none;
                 & + label {
                     cursor: pointer;
@@ -134,12 +134,12 @@ export default {
                     align-items: center;
                 }
             }
-            .rf__checkbox {
+            .subscribe__checkbox {
                 display: flex;
                 align-items: center;
                 gap: 20px;
 
-                #rf-checkbox__inp { 
+                #subscribe-checkbox__inp { 
                     display: none; 
                 
                     &:checked + label {
@@ -161,7 +161,7 @@ export default {
                 }
             }
 
-            .rf__btn {
+            .subscribe__btn {
                 width: 205px;
                 height: 56px;
                 @include tablet { width: 100%; }
@@ -175,16 +175,16 @@ export default {
                 margin-bottom: 40px;
             }
         }
-        .rf__info {
+        .subscribe__info {
             width: 100%;
             display: flex;
             flex-direction: column;
 
-            .rf-info__title {
+            .subscribe-info__title {
                 opacity: 0.6;
                 margin-bottom: 8px;
             }
-            .rf-info__text:not(:last-child) { margin-bottom: 32px; }
+            .subscribe-info__text:not(:last-child) { margin-bottom: 32px; }
         }
     }
 </style>

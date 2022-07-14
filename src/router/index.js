@@ -9,7 +9,7 @@ const routes = [
   {
     path: '/subscribe',
     name: 'Subscribe',
-    component: () => import('../views/RequestForm.vue')
+    component: () => import('../views/SubscribeForm.vue')
   }
 ]
 
