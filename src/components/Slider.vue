@@ -96,6 +96,7 @@ export default {
     },
     methods: {
         slideNext() {
+            // TODO Избавиться от работы с напрямую DOM
             if (this.possibleSwipeNext) {
                 const elWidth = document.querySelector('.slide').getBoundingClientRect().width
                 const elMargin = parseInt(window.getComputedStyle(document.querySelector('.slide')).marginRight, 10)
